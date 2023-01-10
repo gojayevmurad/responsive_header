@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  color: black;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.header {
+  background-color: #252b42;
+  padding: 30px 0;
+}
+@media only screen and (max-width: 991px) {
+  .header {
+    display: none;
+  }
+}
+.header--intro {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  font-weight: 500;
+}
+.header--intro .left_side {
+  gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.header--intro__phone, .header--intro__mail, .header--intro__sociall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+}
+.header--intro__sociall .sociall_icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.nav {
+  padding: 20px 0;
+}
+@media only screen and (max-width: 991px) {
+  .nav * {
+    font-size: 15px;
+  }
+  .nav .nav-df {
+    gap: 20px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .nav .nav-df {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .nav .nav__logo {
+    font-size: 40px;
+    align-self: flex-start;
+  }
+  .nav .nav__actions {
+    display: none;
+  }
+  .nav .nav__user {
+    display: none;
+  }
+  .nav .nav__navigation {
+    display: none;
+  }
+  .nav .nav__navigation ul {
+    flex-direction: column;
+  }
+  .nav .nav__navigation ul li a {
+    font-size: 25px;
+  }
+}
+.nav .hamburger {
+  display: none;
+  cursor: pointer;
+  height: 8px;
+  width: 30px;
+  background-color: black;
+}
+@media only screen and (max-width: 767px) {
+  .nav .hamburger {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+.nav .hamburger.active {
+  height: 0;
+}
+.nav .hamburger::after {
+  content: "";
+  width: 30px;
+  height: 8px;
+  background-color: black;
+  position: absolute;
+  top: 10px;
+  transition: 0.1s;
+}
+.nav .hamburger::before {
+  content: "";
+  width: 30px;
+  height: 8px;
+  background-color: black;
+  position: absolute;
+  bottom: 10px;
+  transition: 0.1s;
+}
+.nav .hamburger.active::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+.nav .hamburger.active::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.nav .hamburger.active ~ .nav__navigation {
+  display: block !important;
+}
+.nav-df {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 60px;
+}
+.nav__logo {
+  letter-spacing: 1px;
+}
+.nav__navigation ul {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-weight: 600;
+}
+.nav__navigation ul a {
+  color: #737373;
+}
+.nav__user {
+  margin-left: auto;
+}
+.nav__user img {
+  margin-right: 5px;
+}
+.nav__user span {
+  font-weight: 600;
+  color: #23A6F0;
+}
+.nav__user span a {
+  color: #23A6F0;
+}
+.nav__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+@media only screen and (max-width: 991px) {
+  .nav__actions {
+    gap: 10px;
+  }
+}
+
+.hamburger:hover {
+  -webkit-animation: shake 0.8s 1s infinite both;
+          animation: shake 0.8s 1s infinite both;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60% {
+    transform: translateX(4px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  90% {
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60% {
+    transform: translateX(4px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  90% {
+    transform: translateX(-3px);
+  }
+}/*# sourceMappingURL=style.css.map */

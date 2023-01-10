@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "mixin";
+@import "responsive";
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  color: black;
+}
+
+.container {
+  max-width: 1350px;
+  margin: 0 auto;
+
+  @include desktop {
+    max-width: 1140px;
+  }
+  @include tablet {
+    max-width: 960px;
+  }
+
+  @include mobile {
+    max-width: 720px;
+  }
+
+  @include extra-small-device {
+    max-width: 540px;
+  }
+
+  @include extra-extra-small-device {
+    max-width: 100%;
+  }
+  overflow: hidden;
+}
+
+.header {
+  padding: 10px 0;
+
+  &--content {
+    @include d-flex(space-between);
+    flex-wrap: wrap;
+    @include mobile {
+      @include d-flex(center, center, column);
+    }
+  }
+
+  &--navigation {
+    ul {
+      @include d-flex();
+      gap: 20px;
+    }
+  }
+
+  &--user {
+    @include d-flex;
+    gap: 5px;
+  }
+
+  &--actions {
+    @include d-flex;
+    gap: 10px;
+  }
+
+  
+
+  @include mobile {
+    background-color: #252b42;
+    * {
+      color: white;
+    }
+
+    .header--logo {
+      align-self: start;
+    }
+
+    .header--user,
+    .header--navigation,
+    .header--actions {
+      display: none;
+    }
+
+    .header--navigation {
+      ul {
+        @include d-flex(center, center, column);
+        font-size: 1, 2rem;
+      }
+    }
+    .header--hamburger {
+      display: block;
+    }
+  }
+}
+
+// HAMBURGER
+.header--hamburger{
+  display: none;
+}
+
+.header--hamburger {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 10px;
+  height: 8px;
+  width: 35px;
+  background-color: white;
+}
+.header--hamburger::after {
+  content: "";
+  height: 8px;
+  width: 35px;
+  background-color: white;
+  position: absolute;
+  top: 10px;
+  transition: .5s;
+}
+.header--hamburger::before {
+  content: "";
+  height: 8px;
+  width: 35px;
+  background-color: white;
+  position: absolute;
+  bottom: 10px;
+  transition: .5s;
+
+}
+
+
+.header--hamburger.active~ .header--navigation{
+
+
+  display: block;
+}
+
+.header--hamburger.active{
+  background-color: #252b42;
+}
+
+.header--hamburger.active:after{
+  transform: rotate(405deg);
+  top: 0;
+}
+
+.header--hamburger.active:before{
+  transform: rotate(-405deg);
+  top: 0;
+}
+
+@include extra-small-device{
+  .header--logo{
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "mixin";
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  color: black;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 30px;
+}
+// header start
+
+.header {
+
+  @include tablet{
+    display: none;
+  }
+  
+  background-color: #252b42;
+  padding: 30px 0;
+  &--intro {
+    color: #fff;
+    @include d-flex(space-between, center);
+    font-weight: 500;
+
+    .left_side {
+      gap: 30px;
+      @include d-flex(space-between);
+    }
+
+    &__phone,
+    &__mail,
+    &__sociall {
+      @include d-flex;
+      gap: 5px;
+    }
+
+    &__sociall {
+      .sociall_icons {
+        @include d-flex;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+.nav {
+  padding: 20px 0;
+
+  @include tablet{
+    *{
+      font-size: 15px;
+    }
+    .nav-df{
+      gap: 20px
+    }
+  }
+
+  
+  @include mobile{
+    .nav-df{
+      @include d-flex(center, center,column)
+    }
+
+    .nav__logo{
+      font-size: 40px;
+      align-self: flex-start;
+    }
+    .nav__actions{
+      display: none;
+    }
+    .nav__user{
+      display: none;
+    }
+
+    .nav__navigation{
+      display: none;
+      ul{
+        flex-direction: column;
+        li{
+          a{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+    
+  }
+  .hamburger{
+    display: none;
+    cursor: pointer;
+    height: 8px;
+    width: 30px;
+    background-color: black;
+    @include mobile{
+      display: inline-block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+  .hamburger.active{
+    height: 0;
+  }
+
+  
+
+  
+  
+  .hamburger::after{
+    content: '';
+    width: 30px;
+    height: 8px;
+    background-color: black;
+    position: absolute;
+    top: 10px;
+    transition: .1s;
+  }
+  
+  .hamburger::before{
+    content: '';
+    width: 30px;
+    height: 8px;
+    background-color: black;
+    position: absolute;
+    bottom: 10px;
+    transition: .1s;
+
+  }
+
+  .hamburger.active::after{
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .hamburger.active::before{
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  .hamburger.active~.nav__navigation{
+    display: block !important;
+  }
+  
+  &-df {
+    @include d-flex(space-between);
+    gap: 60px;
+  }
+
+  &__logo {
+    letter-spacing: 1px;
+  }
+  &__navigation {
+    ul {
+      gap: 10px;
+      @include d-flex;
+      font-weight: 600;
+      a {
+        color: #737373;
+      }
+    }
+  }
+  &__user {
+    margin-left: auto;
+    img{
+      margin-right: 5px;
+    }
+    span{
+      font-weight: 600;
+      color: #23A6F0;
+      a{
+        color:#23A6F0;
+      }
+    }
+  }
+
+  &__actions {
+    @include d-flex;
+    gap: 20px;
+
+    @include tablet{
+      gap: 10px;
+    }
+  }
+}
+
+.hamburger:hover{
+  animation: shake 0.8s 1s infinite both;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  20%,
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  90% {
+    transform: translateX(-3px);
+  }
+}

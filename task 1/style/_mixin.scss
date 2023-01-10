@@ -1,0 +1,42 @@
+@import 'variables';
+
+// FLEXBOX
+@mixin d-flex($justify: center, $align : center,$row:row){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $row;
+}
+
+// RESPONSIVE DESIGN
+
+@mixin extra-extra-small-device{
+    @media only screen and (max-width:$extra-extra-small-device){
+        @content;
+    }
+}
+
+
+@mixin extra-small-device{
+    @media only screen and (max-width:$extra-small-device) {
+        @content;
+    }
+};
+
+@mixin mobile{
+    @media only screen and (max-width:$mobile) {
+        @content;
+    }
+};
+
+@mixin tablet{
+    @media only screen and (max-width:$tablet){
+        @content;
+    }
+};
+
+@mixin desktop{
+    @media only screen and (max-width:$desktop){
+        @content;
+    }
+};
